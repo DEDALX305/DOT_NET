@@ -72,7 +72,8 @@ namespace _1Lab_OOP
         public void Number_Processes()
         {
             Console.WriteLine("10");
-        }
+           string name;
+    }
         abstract public void NumberService();
     }
     public class ManagerProcesses : NumberProcesses
@@ -83,9 +84,19 @@ namespace _1Lab_OOP
         }
     }
 
+    //public class Date
+    //{
+    //    private string _type;
+    //
+    //    public string Type
+    //    {
+    //        get { return _type; }
+    //        set { _type = value; }
+    //    }
+    //}
 
 
-    public class Windows
+        public class Windows
     {
         private static void Main(string[] args)
         {
@@ -107,7 +118,7 @@ namespace _1Lab_OOP
             status8.Processes_status();
             ManagerProcesses status9 = new ManagerProcesses();
             status9.NumberService();
-            status9.Number_Processes();
+            status9.Number_Processes();          
             Console.ReadKey();
         }
         
