@@ -71,8 +71,7 @@ namespace _1Lab_OOP
     {
         public void Number_Processes()
         {
-            Console.WriteLine("10");
-           string name;
+            Console.WriteLine("10");   
     }
         abstract public void NumberService();
     }
@@ -123,10 +122,4 @@ namespace _1Lab_OOP
         }
         
     }
-
-
-
-
-
-   
 }
