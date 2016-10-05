@@ -4,11 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-
-
 namespace _1Lab_OOP
 {
-
     public class Registry
     {
         public void Registry_status()
@@ -65,13 +62,11 @@ namespace _1Lab_OOP
             Console.WriteLine("Processes uploaded.");
         }
     }
-
-
     public abstract class NumberProcesses
     {
         public void Number_Processes()
         {
-            Console.WriteLine("10");   
+            Console.WriteLine("Количество процессов 10");   
     }
         abstract public void NumberService();
     }
@@ -79,26 +74,42 @@ namespace _1Lab_OOP
     {
         public override void NumberService()
         {
-            Console.WriteLine("99");
+            Console.WriteLine("Количество служб 99");
         }
     }
 
-    //public class Date
-    //{
-    //    private string _type;
-    //
-    //    public string Type
-    //    {
-    //        get { return _type; }
-    //        set { _type = value; }
-    //    }
-    //}
+    class UserInfo
+    {
+        int Number_program = 15;
+        string UserName = "Alex";
+        public int NumberP
+        {
+            get
+            {
+                if (Number_program <= 0)
+                    return 1;
+                return Number_program;
+            }
 
+            set
+            {
+                Number_program = value;
+            }
+        }
+        public string Name
+        {
+            get
+            {
+                return UserName;
+            }
+        }
+    }
 
-        public class Windows
+    public class Windows
     {
         private static void Main(string[] args)
         {
+            Console.WriteLine("Прогресс загрузки");
             Registry status1 = new Registry();
             status1.Registry_status();
             Explorer status2 = new Explorer();
@@ -118,8 +129,16 @@ namespace _1Lab_OOP
             ManagerProcesses status9 = new ManagerProcesses();
             status9.NumberService();
             status9.Number_Processes();          
-            Console.ReadKey();
-        }
-        
+            
+            UserInfo ui = new UserInfo();
+            Console.WriteLine("Старое количество программ");
+            Console.WriteLine(ui.NumberP);
+            ui.NumberP = 26;
+            Console.WriteLine("Новое количество программ");
+            Console.WriteLine(ui.NumberP);
+            Console.WriteLine("Имя пользователя");
+            Console.WriteLine(ui.Name);
+            Console.ReadLine();
+        } 
     }
 }
