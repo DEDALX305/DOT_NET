@@ -27,105 +27,46 @@ using System.Runtime.Serialization.Json;
 using SerializationXML;
 using SerializationJSON;
 using SerializationBinary;
+using Moduls;
+using LogHelper;
+using System.Diagnostics;
 
 namespace MainProject
 {
-    public class Registry
+   class Read_konfig_autodown
     {
-        public void Registry_status()
+        public String line;
+        public String lineText;
+        public void read_file()
         {
-            Console.WriteLine("Registry uploaded.");
-        }
-    }
-    public class Explorer
-    {
-        public void Explorer_status()
-        {
-            Console.WriteLine("Explorer uploaded.");
-        }
-    }
-    public class Windows_API
-    {
-        public void Windows_API_status()
-        {
-            Console.WriteLine("Windows API uploaded.");
-        }
-    }
-    public class Kernel
-    {
-        public void Kernel_status()
-        {
-            Console.WriteLine("Kernel uploaded.");
-        }
-    }
-    public class DirectX
-    {
-        public void DirectX_status()
-        {
-            Console.WriteLine("DirectX uploaded.");
-        }
-    }
-    public class User
-    {
-        public void User_status()
-        {
-            Console.WriteLine("User uploaded.");
-        }
-    }
-    public class Service
-    {
-        public void Service_status()
-        {
-            Console.WriteLine("Service uploaded.");
-        }
-    }
-    public class Processes
-    {
-        public void Processes_status()
-        {
-            Console.WriteLine("Processes uploaded.");
-        }
-    }
-    public abstract class NumberProcesses
-    {
-        public void Number_Processes()
-        {
-            Console.WriteLine("Количество процессов 10");
-        }
-        abstract public void NumberService();
-    }
-    public class ManagerProcesses : NumberProcesses
-    {
-        public override void NumberService()
-        {
-            Console.WriteLine("Количество служб 99");
-        }
-    }
-
-    class UserInfo
-    {
-        int Number_program = 15;
-        string UserName = "Alex";
-        public int NumberP
-        {
-            get
+            try
             {
-                if (Number_program <= 0)
-                    return 1;
-                return Number_program;
+                using (StreamReader _StreamReader = new StreamReader("Автозагрузка.txt"))
+                {
+                    Console.WriteLine("Списко программ в автозагрузке {0}", lineText);
+                    while (true)
+                    {
+                        line = _StreamReader.ReadLine();
+
+                        if (line == null)
+                            break;
+                        lineText = line;
+                        Console.WriteLine(" {0}", lineText);
+                    }
+                }
+            }
+            catch (FileNotFoundException)
+            {
+                Console.WriteLine("Файл конфигурации автозагрузки не найден");
+                Console.ReadLine();
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Файл конфигурации автозагрузки не может быть прочитан");
+                Console.ReadLine();
+
             }
 
-            set
-            {
-                Number_program = value;
-            }
-        }
-        public string Name
-        {
-            get
-            {
-                return UserName;
-            }
         }
     }
 
@@ -166,7 +107,9 @@ namespace MainProject
     {
         private static void Main(string[] args)
         {
-        
+            LogException newlog = new LogException();
+            newlog.write_log();
+            
             Console.WriteLine("Прогресс загрузки");
             Registry status1 = new Registry();
             status1.Registry_status();
@@ -189,6 +132,9 @@ namespace MainProject
             status9.Number_Processes();
 
             UserInfo ui = new UserInfo();
+            Read_konfig_autodown _Read_konfig_autodown = new Read_konfig_autodown();
+            _Read_konfig_autodown.read_file();
+
             Console.WriteLine("Старое количество программ");
             Console.WriteLine(ui.NumberP);
             ui.NumberP = 26;
@@ -197,12 +143,20 @@ namespace MainProject
             Console.WriteLine("Имя пользователя");
             Console.WriteLine(ui.Name);
 
+            // ____________________________________________________________________Serialization XML JSON Binary
+            try
+            {  
+                interface_ISerializer ISerialize = new interface_ISerializer();
+                ISerialize.Serialize();
+                ISerialize.Deserialize();    
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Не сработала сериализация");
+                Console.ReadLine();
+            }
+            // ____________________________________________________________________Serialization XML JSON Binary
 
-            // ////////////////////////////////////////////////////////Serialization XML JSON Binary
-            interface_ISerializer ISerialize = new interface_ISerializer();
-            ISerialize.Serialize();
-            ISerialize.Deserialize();
-            // ////////////////////////////////////////////////////////Serialization XML JSON Binary
 
             Console.ReadLine();
         } // Главная программа
