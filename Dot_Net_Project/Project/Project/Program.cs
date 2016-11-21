@@ -70,7 +70,7 @@ namespace MainProject
         }
     }
 
-    // ////////////////////////////////////////////////////////Serializatio nXML JSON Binary
+    // ////////////////////////////////////////////////////////Serialization XML JSON Binary
     class interface_ISerializer
     {
         public void Serialize()
@@ -105,7 +105,7 @@ namespace MainProject
 
     public class Windows
     {
-        private static void Main(string[] args)
+        public static void Main(string[] args)
         {
             LogException newlog = new LogException();
             newlog.write_log();
