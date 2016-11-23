@@ -30,6 +30,7 @@ using SerializationBinary;
 using Moduls;
 using LogHelper;
 using System.Diagnostics;
+using Project.UnitTesting;
 
 namespace MainProject
 {
@@ -70,7 +71,9 @@ namespace MainProject
         }
     }
 
-    // ////////////////////////////////////////////////////////Serialization XML JSON Binary
+    /// <summary>
+    /// Serialization XML JSON Binary
+    /// </summary>
     class interface_ISerializer
     {
         public void Serialize()
@@ -100,11 +103,16 @@ namespace MainProject
         }
 
     }
-    // ////////////////////////////////////////////////////////Serialization XML JSON Binary
 
-
+/// <summary>
+/// Основной класс загружающий все модули 
+/// </summary>
     public class Windows
     {
+        /// <summary>
+        /// Основной метод загружающий все модули
+        /// </summary>
+        /// <param name="args"></param>
         public static void Main(string[] args)
         {
             LogException newlog = new LogException();
@@ -142,6 +150,9 @@ namespace MainProject
             Console.WriteLine(ui.NumberP);
             Console.WriteLine("Имя пользователя");
             Console.WriteLine(ui.Name);
+
+            Project.UnitTesting.NUnitTests wd = new Project.UnitTesting.NUnitTests();
+            wd.Test();
 
             // ____________________________________________________________________Serialization XML JSON Binary
             try

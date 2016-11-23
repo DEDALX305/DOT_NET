@@ -35,7 +35,6 @@ namespace LogHelper
         {            
             try
             {
-                // Путь .\\Log
                 string pathToLog = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Log");
                 if (!Directory.Exists(pathToLog))
                     Directory.CreateDirectory(pathToLog); // Создаем директорию, если нужно

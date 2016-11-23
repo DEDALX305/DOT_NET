@@ -25,6 +25,7 @@ using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Runtime.Serialization.Json;
 
+
 namespace SerializationBinary
 {
     [Serializable]

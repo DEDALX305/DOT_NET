@@ -27,6 +27,9 @@ using System.Runtime.Serialization.Json;
 
 namespace SerializationJSON
 {
+    /// <summary>
+    /// SerializationJSON
+    /// </summary>
     [DataContract]
     public class Person
     {

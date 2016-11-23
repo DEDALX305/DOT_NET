@@ -27,10 +27,14 @@ using System.Runtime.Serialization.Json;
 
 namespace SerializationXML
 {
-    // класс и его члены объявлены как public
+    /// <summary>
+    /// класс и его члены объявлены как public
+    /// </summary>
     [Serializable]
     public class Person
     {
+        ///<param name = "Name" > Имя  </param>
+        /// <param name="Password">Пароль</param>
         public string Name { get; set; }
         public int Password { get; set; }
 
