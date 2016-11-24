@@ -12,10 +12,10 @@ using System.Threading.Tasks;
 using NUnit.Framework;
 
 namespace Project.UnitTesting
-{
+{ 
     [TestFixture]
     class NUnitTests
-    {
+    {  
         [Test]
         public void Test()
         {
