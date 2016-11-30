@@ -30,7 +30,6 @@ using SerializationBinary;
 using Moduls;
 using LogHelper;
 using System.Diagnostics;
-using Project.UnitTesting;
 
 namespace MainProject
 {
@@ -119,8 +118,8 @@ namespace MainProject
             newlog.write_log();
             
             Console.WriteLine("Прогресс загрузки");
-            Registry status1 = new Registry();
-            status1.Registry_status();
+            //Registry status1 = new Registry();
+            //status1.Registry_status();
             Explorer status2 = new Explorer();
             status2.Explorer_status();
             Windows_API status3 = new Windows_API();
@@ -151,8 +150,7 @@ namespace MainProject
             Console.WriteLine("Имя пользователя");
             Console.WriteLine(ui.Name);
 
-            Project.UnitTesting.NUnitTests wd = new Project.UnitTesting.NUnitTests();
-            wd.Test();
+           
 
             // ____________________________________________________________________Serialization XML JSON Binary
             try

@@ -32,9 +32,10 @@ namespace Moduls
 {
     public class Registry
     {
-        public void Registry_status()
+        public string Registry_status(string registry_s)
         {
-            Console.WriteLine("Registry uploaded.");
+            //Console.WriteLine("Registry uploaded.");
+            return registry_s;
         }
     }
     public class Explorer
